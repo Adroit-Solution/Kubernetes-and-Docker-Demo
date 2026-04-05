@@ -1,0 +1,23 @@
+name: DockerDemo
+
+services:
+    mysql:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: pass@123
+            MYSQL_DATABASE: Catalog
+        ports:
+            - "3306:3306"
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+        - "8080:8080"
+        depends_on:
+        - mysql
+
+    redis-cache:
+        image: redis
+        restart: always
