@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-application
+  labels:
+    app: demo-application
+    tier: backend 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-application
+  template:
+    metadata:
+      labels:
+        app: demo-application
+        tier: backend 
+    spec: 
+      containers:
+        - name: demo-application
+          image: adroitsolutions/dockerdemoimage:latest
+          ports:
+            - containerPort: 8080
+          env:
+          - name: MYSQL_CONNECTION
+            value: "Server=mysql-service;Port=3306;Database=Catalog;User=root;Password=pass@123;"
+          - name: REDIS_CONNECTION
+            value: "redis-service:6379"
