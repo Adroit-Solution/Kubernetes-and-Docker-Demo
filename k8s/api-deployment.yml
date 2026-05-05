@@ -18,9 +18,7 @@ spec:
     spec: 
       containers:
         - name: demo-application
-          # image: adroitsolutions/dockerdemoimage:latest
-          image: backend-api
-          imagePullPolicy: Never
+          image: adroitsolutions/dockerdemoimage:latest
           ports:
             - containerPort: 8080
           env:
