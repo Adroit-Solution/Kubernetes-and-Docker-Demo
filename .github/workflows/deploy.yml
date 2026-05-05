@@ -22,7 +22,7 @@ jobs:
     # ---------------------------
     - name: Start Minikube (if not running)
       run: |
-        minikube status || minikube start
+        minikube status
 
     # ---------------------------
     # Use Minikube Docker daemon
